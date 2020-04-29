@@ -1,0 +1,20 @@
+.locbutton{
+display: none
+}
+
+.messageform{
+    display: none
+}
+
+.userjoinform{
+    display: block
+}
+
+.welcomeP{
+    text-align: center;
+}
+
+.side-bar{
+    margin-left: 50px;
+    background-color: hotpink;
+}
