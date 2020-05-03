@@ -1,0 +1,13 @@
+# ChatApp-Node
+
+This is a chat-application developed using Node js
+Used Express & socket.io libraries to develope it
+ 
+ Using this application, you can,
+ 
+ - chat in a room, where multiple people can join the room you created and have a group chat
+ - you could share the current location through the chat app
+ - you can have a p2p chat with your friend.
+ - you can lock your room by clicking a lock button so that no one else would be able to join into your group
+ 
+ I have added simple html and css to increase the accessibility of this app and added auto-scrolling, few login validations etc to the app
