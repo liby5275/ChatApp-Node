@@ -1,6 +1,12 @@
 # ChatApp-Node
 
 This is a chat-application developed using Node js.
+
+# You can see this application up and running in my below heroku link
+
+https://bibinthomas-chat-app-node.herokuapp.com/
+
+
 Used Express & socket.io libraries to develope it.
  
  Using this application, you can,
