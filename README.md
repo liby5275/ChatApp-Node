@@ -1,7 +1,7 @@
 # ChatApp-Node
 
-This is a chat-application developed using Node js
-Used Express & socket.io libraries to develope it
+This is a chat-application developed using Node js.
+Used Express & socket.io libraries to develope it.
  
  Using this application, you can,
  
@@ -10,4 +10,5 @@ Used Express & socket.io libraries to develope it
  - you can have a p2p chat with your friend.
  - you can lock your room by clicking a lock button so that no one else would be able to join into your group
  
+ People joined and left the chat will be displayed to the other active member(s).
  I have added simple html and css to increase the accessibility of this app and added auto-scrolling, few login validations etc to the app
