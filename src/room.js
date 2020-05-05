@@ -45,6 +45,14 @@ const lockRoom = (roomTobeLocked) => {
     })
 }
 
+const unlockRoom = (roomTobeLocked) => {
+    roomList.forEach(room => {
+        if (room.roomName === roomTobeLocked) {
+            room.isRoomLocked = false
+        }
+    })
+}
+
 const isRoomLocked = function (roomName) {
     let flag = false
     if (roomList.length > 0) {
@@ -70,6 +78,7 @@ module.exports = {
     addRoom: addRoom,
     removeRoom:removeRoom,
     lockRoom: lockRoom,
+    unlockRoom:unlockRoom,
     isRoomLocked: isRoomLocked,
     getRoomList: getRoomList
 }

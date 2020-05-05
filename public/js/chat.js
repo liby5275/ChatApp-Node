@@ -2,6 +2,7 @@ const socket = io()
 
 const locbutton = document.querySelector("#locbutton")
 const lockbutton = document.querySelector('#lockbutton')
+const unlockbutton = document.querySelector('#unlockbutton')
 const userJoinForm = document.querySelector('#userjoinform')
 const messsageForm = document.querySelector('#messageform')
 const userJoinFormButton = userJoinForm.querySelector('button')
@@ -61,6 +62,7 @@ messsageForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
     const messageText = messsageForm.querySelector('input').value
+    messsageForm.reset()
     socket.emit('messageFromUser', messageText)
 })
 
@@ -87,7 +89,17 @@ locbutton.addEventListener('click', () => {
 //lock room
 lockbutton.addEventListener('click', () => {
     socket.emit('lock')
+    lockbutton.style.display="none"
+    unlockbutton.style.display="block"
 })
+
+//unlock Room
+unlockbutton.addEventListener('click', () => {
+    socket.emit('unlock')
+    unlockbutton.style.display="none"
+    lockbutton.style.display="block"
+})
+
 
 
 //Welcome message
@@ -153,6 +165,15 @@ socket.on('warning', (message) => {
 socket.on('lockedthegroup', () => {
     const html = Mustache.render(messageTemplate, {
         message: 'This room is locked now. no one else can join now'
+    })
+    messageElement.insertAdjacentHTML('beforeend', html)
+    autoScroll()
+})
+
+//unlocked message back to the chat window
+socket.on('unlockedthegroup', () => {
+    const html = Mustache.render(messageTemplate, {
+        message: 'Room unlocked!!. You may add new users to the room'
     })
     messageElement.insertAdjacentHTML('beforeend', html)
     autoScroll()

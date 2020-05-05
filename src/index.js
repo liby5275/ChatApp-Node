@@ -74,6 +74,19 @@ io.on('connect', (socket) => {
         io.to(userroom).emit('messageFromUser', messageText, time, username)
     })
 
+    socket.on('lock', () => {
+        roomDependency.lockRoom(userroom)
+        socket.join(userroom)
+        io.to(userroom).emit('lockedthegroup')
+    })
+
+    socket.on('unlock', () => {
+        console.log('unlocking')
+        roomDependency.unlockRoom(userroom)
+        socket.join(userroom)
+        io.to(userroom).emit('unlockedthegroup')
+    })  
+
     socket.on('disconnect', () => {
         const _id = socket.id
         console.log('disconnecting id is ' + username)
@@ -94,15 +107,7 @@ io.on('connect', (socket) => {
         })
     })
 
-    socket.on('lock', () => {
-        const _id = socket.id
-        //const roomname = userDependency.fetchUser(_id)// same canbe acheived by simply taking 'userroom'
-        roomDependency.lockRoom(userroom)
-        socket.join(userroom)
-        io.to(userroom).emit('lockedthegroup')
-    })
-
-
+    
 })
 
 const port = process.env.PORT || 3000
